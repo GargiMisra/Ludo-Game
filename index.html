@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ludo Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: 'Acme', sans-serif;
+      }
+      html{
+        font-size: 62.5%;
+      }
+      body{
+        width: 100%;
+        height: 100%;
+        background-color: #0a3d62;
+      }
+      .container{
+        width: 70%;
+        margin: auto;
+        text-align: center;
+      }
+      h1{
+        margin: 3rem;
+        text-shadow: 0.5rem 0.1rem white;
+        font-size: 9.6rem;
+        color: #f6b93b;
+      }
+      .dice{
+        text-align: center;
+        display: inline-block;
+      }
+      p{
+        font-size: 3.2rem;
+        color: #00b894;
+        text-shadow: 0.1rem 0.1rem white;
+      }
+      img{
+        border-radius: 10%;
+        width: 70%;
+      }
+      button{
+        padding: 1rem;
+        background-color: #00b894;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>LUDO Game</h1>
+      <div class="dice">
+        <p>Player 1</p>
+        <img src="dice1.png" id="c1">
+      </div>
+      <div class="dice">
+        <p>Player 2</p>
+        <img src="dice1.png" id="c2">
+      </div>
+      <div>
+        <button onclick="next()">Click Me</button>
+      </div>
+    </div>
+    <script>
+      let head = document.querySelector('h1');
+      const next = () => {
+        const p1 = Math.ceil(Math.random()*6);
+        const p1_dice = `dice${p1}.png`;
+        document.getElementById('c1').setAttribute('src',p1_dice);
+        const p2 = Math.ceil(Math.random()*6);
+        const p2_dice = `dice${p2}.png`;
+        document.getElementById('c2').setAttribute('src',p2_dice);
+        if(p1>p2)
+          head.innerHTML = "Player 1 Won !"
+        else if(p2>p1)
+          head.innerHTML = "Player 2 Won !"
+        else
+          head.innerHTML = "Draw !"
+      }
+    </script>
+  </body>
+</html>
